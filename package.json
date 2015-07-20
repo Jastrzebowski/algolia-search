@@ -5,7 +5,7 @@
   "main": "app/app.js",
   "scripts": {
     "webpack": "webpack-dev-server --hot --inline",
-    "start": "npm install -g babel && server",
+    "start": "npm install -g babel && babel-node --stage=0 server.js",
     "server": "babel-node --stage=0 server.js",
     "build": "webpack --config webpack.build.config.js --optimize-minimize --progress --profile --colors"
   },
