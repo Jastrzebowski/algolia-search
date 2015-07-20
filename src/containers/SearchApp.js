@@ -37,7 +37,6 @@ export default class SearchApp extends Component {
   }
 
   render() {
-    // console.log(helper.state) query page disjunctiveFacetsRefinements...
     const { options, results } = this.state
     return <div>
       <Search query={options.query} onChanged={::this.handleQuery} />

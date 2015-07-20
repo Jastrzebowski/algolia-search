@@ -1,0 +1,9 @@
+.facets label {
+  display: block;
+}
+
+.facets input:checked + span {
+  color: red;
+  font-weight: bold;
+}
+

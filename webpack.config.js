@@ -16,11 +16,7 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         loaders: ["react-hot", "babel-loader?stage=0"],
-      },
-      {
-        test: /\.html$/,
-        loader: "file?name=[name].[ext]",
-      },
+      }
     ]
   },
   devServer: {

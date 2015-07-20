@@ -22,7 +22,7 @@ export default class Facets extends Component {
 
     const { options, facets, onChanged } = this.props
 
-    return <div className="col s3">
+    return <div className="col s3 facets">
       {facets.map((facet, idx) =>
         <Facet key={idx}
           title={facetsLabels[facet.name]}

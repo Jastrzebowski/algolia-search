@@ -15,7 +15,7 @@ export default class Facet extends Component {
 
     return <div>
       <h4>{title}</h4>
-        {Object.keys(facet).map((key, idx) => <Label key={idx} idx={idx} name={key} {...this.props} />)}
+      {Object.keys(facet).map((key, idx) => <Label key={idx} idx={idx} name={key} {...this.props} />)}
     </div>
   }
 }
