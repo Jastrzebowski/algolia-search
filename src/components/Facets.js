@@ -22,13 +22,15 @@ export default class Facets extends Component {
 
     const { options, facets, onChanged } = this.props
 
+    let refinements = options.disjunctiveFacetsRefinements || [] // [issue: 1]
+
     return <div className="col s3 facets">
       {facets.map((facet, idx) =>
         <Facet key={idx}
           title={facetsLabels[facet.name]}
           facetKey={facet.name}
           facet={facet.data}
-          refinements={options.disjunctiveFacetsRefinements[facet.name]}
+          refinements={refinements[facet.name]}
           onChanged={onChanged} />)}
     </div>
   }

@@ -3,13 +3,12 @@ import React, { PropTypes, Component } from "react"
 export default class Search extends Component {
 
   static propTypes = {
-    query: PropTypes.string.isRequired,
     onChanged: PropTypes.func.isRequired
   }
 
   render() {
 
-    const { query, onChanged } = this.props
+    const { query = "", onChanged } = this.props
 
     return <form>
       <input

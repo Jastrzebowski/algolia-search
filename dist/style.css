@@ -1,4 +1,8 @@
-.facets label {
+.facet label {
+  display: none;
+}
+
+.facet.active label {
   display: block;
 }
 
@@ -6,4 +10,3 @@
   color: red;
   font-weight: bold;
 }
-

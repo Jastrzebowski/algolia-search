@@ -11,10 +11,10 @@ export default class Facet extends Component {
 
   render() {
 
-    const { facet, title } = this.props
+    const { facet, title, facetKey } = this.props
 
-    return <div>
-      <h4>{title}</h4>
+    return <div className="facet" ref={facetKey}>
+      <h5 onClick={() => React.findDOMNode(this.refs[facetKey]).classList.toggle("active")}>{title}</h5>
       {Object.keys(facet).map((key, idx) => <Label key={idx} idx={idx} name={key} {...this.props} />)}
     </div>
   }
