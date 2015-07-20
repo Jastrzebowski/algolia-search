@@ -4,9 +4,8 @@
   "description": "Algolia-based auto-completion menu for e-commerce",
   "main": "app/app.js",
   "scripts": {
-    "install": "npm install -g babel webpack",
     "webpack": "webpack-dev-server --hot --inline",
-    "start": "install && build && server",
+    "start": "npm install -g babel webpack && build && server",
     "server": "babel-node --stage=0 server.js",
     "build": "webpack --config webpack.build.config.js --optimize-minimize --progress --profile --colors"
   },
