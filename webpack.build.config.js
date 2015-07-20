@@ -1,4 +1,4 @@
-/* globals module, __dirname */
+/* globals module, __dirname, optimize */
 
 module.exports = {
   context: __dirname + "/src",
@@ -6,20 +6,16 @@ module.exports = {
     javascript: "./app.js",
   },
   output: {
-    filename: "app.js",
-    path: __dirname + "/dist",
-    publicPath: "http://localhost:9090/"
+    filename: "app.min.js",
+    path: __dirname + "/dist"
   },
   module: {
     loaders: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loaders: ["react-hot", "babel-loader?stage=0"],
+        loaders: ["babel-loader?stage=0"],
       }
     ]
-  },
-  devServer: {
-    port: 9090
   }
 }

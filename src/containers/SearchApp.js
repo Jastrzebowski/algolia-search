@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react"
 
-import {index} from "../fetch"
+import {helper} from "../fetch"
 
 import Facets from "../components/Facets"
 import Items from "../components/Items"
@@ -9,69 +9,57 @@ import Search from "../components/Search"
 export default class SearchApp extends Component {
 
   static propTypes = {
-    query: PropTypes.string.isRequired,
     options: PropTypes.object.isRequired,
     results: PropTypes.object.isRequired
   }
 
   constructor(props, context) {
     super(props, context)
+    helper.on("result", function(results) {
+      let options = helper.state
+      this.setState({ options, results })
+    }.bind(this))
     this.state = this.props
   }
 
   handleQuery(query) {
-    this.setState({ query })
-    index.search(query, this.state.options)
-      .then(function searchSuccess(content) {
-        this.setState({ results: content })
-      }.bind(this))
-      .catch(function searchFailure(err) {
-        console.error(err)
-      })
+    helper.setQuery(query).search()
   }
 
   handleFilter(checked, filter) {
 
-    let options = this.state.options
-
     if (checked) {
-      options.facetFilters.push(filter)
+      helper.addDisjunctiveRefine(...filter.split(":")).search()
     } else {
-      options.facetFilters.splice(options.facetFilters.indexOf(filter), 1)
+      helper.removeDisjunctiveRefine(...filter.split(":")).search()
     }
 
-    this.setState({ options })
-
-    index.search(this.state.query, options)
-      .then(function searchSuccess(content) {
-        this.setState({ results: content })
-      }.bind(this))
-      .catch(function searchFailure(err) {
-        console.error(err)
-      })
-
-    this.setState({ options })
   }
 
   render() {
-    const { query, options, results } = this.state
+    const { options, results } = this.state
+
+    // Dirty hack to mage inconsistance beatwiean basic and helper base
+    // respond from Algolia API
+    // [issue: 1]
+    let facets = []
+
+    if (results.disjunctiveFacets) {
+      facets = results.facets.concat(results.disjunctiveFacets)
+    } else {
+      Object.keys(results.facets).map((key, idx) => facets.push({
+        name: key,
+        data: results.facets[key]}))
+    }
+
     return <div>
-      <Search query={query} onChanged={::this.handleQuery} />
+      <Search query={options.query} onChanged={::this.handleQuery} />
       <div className="row">
-        <Facets options={options} facets={results.facets} onChanged={::this.handleFilter} />
+        <Facets options={options}
+          facets={facets}
+          onChanged={::this.handleFilter} />
         <Items results={results} />
       </div>
     </div>
   }
 }
-
-
-// import React from "react"
-
-// // components
-// import Items from "./Items"
-
-// React.render(
-//   <Items />,
-//   document.body
-// )

@@ -1,0 +1,60 @@
+.facet label {
+  cursor: pointer;
+  display: none;
+}
+
+.facet label:after {
+  content: attr(data-count);
+  float: right;
+}
+
+.facet.active label {
+  display: block;
+}
+
+.facets input:checked + span {
+  color: #26A69A;
+  font-weight: bold;
+}
+
+.facets .title {
+  cursor: pointer;
+}
+
+.item {
+  margin-bottom: 48px;
+  min-height: 128px;
+  padding-left: 128px;
+  position: relative;
+}
+
+.item img {
+  left: 0;
+  max-height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.badges {
+  margin-bottom: 16px;
+}
+
+.badges span {
+  background-color: #DDD;
+  margin-right: 8px;
+  padding: 2px 4px;
+  font-size: .8rem;
+}
+
+
+.item .title {
+  padding-right: 96px;
+}
+
+.item .price {
+  font-size: 2rem;
+  line-height: 1;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
