@@ -1,4 +1,5 @@
 .facet label {
+  cursor: pointer;
   display: none;
 }
 
@@ -9,4 +10,9 @@
 .facets input:checked + span {
   color: red;
   font-weight: bold;
+}
+
+
+.facets .title {
+  cursor: pointer;
 }

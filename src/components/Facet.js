@@ -14,7 +14,7 @@ export default class Facet extends Component {
     const { facet, title, facetKey } = this.props
 
     return <div className="facet" ref={facetKey}>
-      <h5 onClick={() => React.findDOMNode(this.refs[facetKey]).classList.toggle("active")}>{title}</h5>
+      <h5 className="title" onClick={() => React.findDOMNode(this.refs[facetKey]).classList.toggle("active")}>{title}</h5>
       {Object.keys(facet).map((key, idx) => <Label key={idx} idx={idx} name={key} {...this.props} />)}
     </div>
   }
