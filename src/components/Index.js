@@ -11,7 +11,7 @@ export default class Index extends React.Component {
           <meta charSet="utf-8"/>
           <title>Algolia Search react demo</title>
         </head>
-        <body><Items /></body>
+        <body><Items results={this.props.results} /></body>
         <script src="http://localhost:9090/app.js"></script>
       </html>
     )
