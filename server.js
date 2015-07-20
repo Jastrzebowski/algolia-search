@@ -15,7 +15,7 @@ app.set("port", (process.env.PORT || 1138))
 app.get("/", function(req, res) {
 
   helper.search()
-  helper.on("result", function(results) {
+  helper.once("result", function(results) {
     res.send("<html><head><meta charset='utf-8'/><title>Webpack + React</title>" +
     // "<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css'>" +
     "</head><body class='container'>" +

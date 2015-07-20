@@ -2,13 +2,13 @@
 
 module.exports = {
   context: __dirname + "/src",
-  devtool: "source-map",
   entry: {
     javascript: "./app.js",
   },
   output: {
     filename: "app.js",
-    path: __dirname + "/dist"
+    path: __dirname + "/dist",
+    publicPath: "http://localhost:9090/"
   },
   module: {
     loaders: [
