@@ -3,9 +3,9 @@
 import React from "react"
 import express from "express"
 
-import {index} from "src/fetch"
+import {index} from "./src/fetch"
 
-import SearchApp from "src/containers/SearchApp"
+import SearchApp from "./src/containers/SearchApp"
 
 const app = express()
 const state = {
