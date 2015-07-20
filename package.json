@@ -6,6 +6,7 @@
   "scripts": {
     "webpack": "webpack-dev-server --hot --inline",
     "start": "npm install -g babel && babel-node --stage=0 server.js",
+    "server": "babel-node --stage=0 server.js",
     "build": "webpack --config webpack-production.config.js --progress --profile --colors"
   },
   "keywords": [],

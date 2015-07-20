@@ -7,9 +7,9 @@ export default class Item extends React.Component {
     var { name, bestSellingRank, thumbnailImage } = this.props
 
     return <div className="item">
-      <h2>{name}</h2>
+      <h4>{name}</h4>
       <span>{bestSellingRank}</span>
-      <img src={thumbnailImage} alt={name} />
+      <img className="responsive-img" src={thumbnailImage} alt={name} />
     </div>
   }
 }
