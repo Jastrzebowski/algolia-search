@@ -1,15 +1,7 @@
-window.__CLIENT__ = true
-window.__SERVER__ = false
-
-// import "babel/polyfill"
-
 import React from "react"
-// import { Provider } from "redux/react"
-import SearchApp from "./containers/SearchApp"
-// import create from "./redux"
-// import * as stores from "./stores/search"
-
 import {client, index} from "./fetch"
+
+import SearchApp from "./containers/SearchApp"
 
 const state = {
   query: "",
@@ -37,16 +29,3 @@ index.search(state.query, state.options)
   .catch(function searchFailure(err) {
     console.error(err)
   })
-
-
-
-// const redux = create(stores, state)
-
-// console.log(redux)
-
-// import React from "react"
-
-// // components
-// import Items from "./Items"
-
-

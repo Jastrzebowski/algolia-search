@@ -23,7 +23,7 @@ const state = {
   results: {}
 }
 
-const appPath = process.env.PROD ? "dist/" : "http://localhost:9090/"
+const appFile = process.env.PROD ? "dist/app.min.js" : "http://localhost:9090/app.js"
 
 app.set("port", (process.env.PORT || 1138))
 app.get("/", function(req, res) {
@@ -33,7 +33,7 @@ app.get("/", function(req, res) {
       state.results = content
       res.send("<html><head><meta charset='utf-8'/><title>Webpack + React</title><link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css'></head><body class='container'>" +
       React.renderToString(<SearchApp {...state} />) +
-      "</body><script src='" + appPath + "app.js'></script></html>")
+      "</body><script src='" + appFile + "'></script></html>")
     })
     .catch(function searchFailure(err) {
       console.error(err)
