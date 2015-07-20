@@ -6,21 +6,23 @@ export default class Item extends React.Component {
 
     var { name,
       bestSellingRank,
-      thumbnailImage,
+      image,
       manufacturer,
       salePrice,
       shipping,
       shortDescription,
       type,
-      url } = this.props
+      url,
+      category } = this.props
 
     // console.log(this.props)
 
     return <div className="item">
-      <h4><a href="{url}">{name}</a></h4>
-      <a href="{url}"><img className="responsive-img" src={thumbnailImage} alt={name} /></a>
-      <span>{shortDescription}</span>
-      <div>{type}</div>
+      <h5 className="title"><a href={url}>{name}</a></h5>
+      <a href={url}><img className="responsive-img" src={image} alt={name} /></a>
+      <span className="price">${salePrice}</span>
+      <div className="badges"><span>{type}</span><span>{manufacturer}</span><span>{category}</span></div>
+      <div className="description">{shortDescription}</div>
     </div>
   }
 }

@@ -12,7 +12,7 @@ export default class Search extends Component {
 
     return <form>
       <input
-        placeholder="Search…" type="text" ref="filterTextInput"
+        placeholder="Search by name, brand, description…" type="text" ref="filterTextInput"
         value={query} onChange={() => onChanged(React.findDOMNode(this.refs.filterTextInput).value)} />
     </form>
   }
