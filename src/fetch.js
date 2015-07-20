@@ -1,4 +1,5 @@
 import algoliasearch from "algoliasearch"
+import algoliasearchHelper from "algoliasearch-helper"
 
 const [APPID, APIKEY, INDEX] = [
   "D6FAJDO57M",
@@ -8,3 +9,7 @@ const [APPID, APIKEY, INDEX] = [
 
 export const client = algoliasearch(APPID, APIKEY)
 export const index = client.initIndex(INDEX)
+export const helper = algoliasearchHelper(client, INDEX, {
+  facets: [ "type", "shipping" ],
+  disjunctiveFacets: [ "category", "manufacturer", "salePrice_range" ]
+})

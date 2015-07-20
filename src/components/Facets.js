@@ -14,7 +14,7 @@ export default class Facets extends Component {
 
   static propTypes = {
     options: PropTypes.object.isRequired,
-    facets: PropTypes.object.isRequired,
+    facets: PropTypes.array.isRequired,
     onChanged: PropTypes.func.isRequired
   }
 
@@ -23,12 +23,12 @@ export default class Facets extends Component {
     const { options, facets, onChanged } = this.props
 
     return <div className="col s3">
-      {Object.keys(facets).map((key, idx) =>
+      {facets.map((facet, idx) =>
         <Facet key={idx}
-          label={facetsLabels[key]}
-          facetKey={key}
-          facet={facets[key]}
-          checked={options.facetFilters}
+          title={facetsLabels[facet.name]}
+          facetKey={facet.name}
+          facet={facet.data}
+          refinements={options.disjunctiveFacetsRefinements[facet.name]}
           onChanged={onChanged} />)}
     </div>
   }

@@ -2,7 +2,7 @@
 
 module.exports = {
   context: __dirname + "/src",
-  devtool: 'source-map',
+  devtool: "source-map",
   entry: {
     javascript: "./app.js",
   },

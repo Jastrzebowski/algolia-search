@@ -4,26 +4,36 @@ export default class Facet extends Component {
 
   static propTypes = {
     facet: PropTypes.object.isRequired,
-    label: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
     facetKey: PropTypes.string.isRequired,
     onChanged: PropTypes.func.isRequired
   }
 
   render() {
 
-    const { facet, label, facetKey, onChanged, checked } = this.props
+    const { facet, title } = this.props
 
     return <div>
-      <h4>{label}</h4>
-        {Object.keys(facet).map((key, idx) => <label key={idx} data-count={facet[key]}>
-          <input type="checkbox"
-          value={facetKey + ":" + key}
+      <h4>{title}</h4>
+        {Object.keys(facet).map((key, idx) => <Label key={idx} idx={idx} name={key} {...this.props} />)}
+    </div>
+  }
+}
+
+class Label extends Component {
+
+  render() {
+
+    const { facet, facetKey, onChanged, refinements = [], name, idx } = this.props
+
+    return <label data-count={facet[name]}>
+      <input type="checkbox"
+          value={facetKey + ":" + name}
           ref={"filterCheckboxInput:" + idx}
-          checked={~checked.indexOf(facetKey + ":" + key)}
+          checked={~refinements.indexOf(name)}
           onChange={() => onChanged(
             React.findDOMNode(this.refs["filterCheckboxInput:" + idx]).checked,
-            React.findDOMNode(this.refs["filterCheckboxInput:" + idx]).value)} />{key}
-        </label>)}
-    </div>
+            React.findDOMNode(this.refs["filterCheckboxInput:" + idx]).value)} />{name}
+    </label>
   }
 }

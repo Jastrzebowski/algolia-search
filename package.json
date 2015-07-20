@@ -14,15 +14,17 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "algoliasearch": "^3.7.3",
+    "algoliasearch-helper": "^2.1.2",
     "babel-core": "^5.6.15",
     "babel-loader": "^5.2.2",
     "express": "^4.13.0",
     "file-loader": "^0.8.4",
     "node-libs-browser": "^0.5.2",
+    "react": "^0.13.3",
     "react-hot-loader": "^1.2.7",
+    "react-router": "^0.13.3",
     "webpack": "^1.10.0",
-    "webpack-dev-server": "^1.10.1",
-    "algoliasearch": "^3.7.3",
-    "react": "^0.13.3"
+    "webpack-dev-server": "^1.10.1"
   }
 }
