@@ -24,6 +24,8 @@ export default class SearchApp extends Component {
 
   handleQuery(query) {
     helper.setQuery(query).search()
+    let options = helper.state
+    this.setState({ options })
   }
 
   handleFilter(checked, filter) {
