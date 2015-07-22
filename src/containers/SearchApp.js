@@ -39,7 +39,7 @@ export default class SearchApp extends Component {
   render() {
     const { options, results } = this.state
 
-    // Dirty hack to mage inconsistance beatwiean basic and helper base
+    // Dirty hack to make inconsistency between basic and helper base
     // respond from Algolia API
     // [issue: 1]
     let facets = []
