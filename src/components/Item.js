@@ -5,7 +5,6 @@ export default class Item extends React.Component {
   render() {
 
     var { name,
-      bestSellingRank,
       image,
       manufacturer,
       salePrice,
@@ -14,8 +13,6 @@ export default class Item extends React.Component {
       type,
       url,
       category } = this.props
-
-    // console.log(this.props)
 
     return <div className="item">
       <h5 className="title"><a href={url}>{name}</a></h5>
